@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.oriole.motaserver.dao.AdvertisementBaseDao">
+    <resultMap id="ADInfo" type="com.oriole.motaserver.model.AdvertisementBase">
+        <id column="AID" jdbcType="INTEGER" property="aid" />
+        <result column="ADName" jdbcType="VARCHAR" property="adName"/>
+        <result column="ADFile" jdbcType="VARCHAR" property="adFile"/>
+        <result column="ADSupplierID" jdbcType="VARCHAR" property="adSupplierID"/>
+        <result column="ADResidualTimes" jdbcType="INTEGER" property="adResidualTimes"/>
+        <result column="ADStartData" jdbcType="DATE" property="adStartData"/>
+        <result column="ADEndData" jdbcType="DATE" property="adEndData"/>
+        <result column="ExamineFlag" jdbcType="TINYINT" property="examineFlag"/>
+        <result column="PaymentFlag" jdbcType="TINYINT" property="paymentFlag"/>
+        <result column="EffectiveFlag" jdbcType="TINYINT" property="effectiveFlag"/>
+    </resultMap>
+    <select id="getEffectiveAD" resultMap="ADInfo">
+        SELECT * FROM advertisement_base WHERE EffectiveFlag = true
+    </select>
+</mapper>
