@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.oriole.motaserver.dao.FileUploadCodeDao">
+    <select id="getDeviceIDByCode" parameterType="String" resultType="String">
+        SELECT deviceID FROM file_upload_code WHERE file_upload_code =#{code}
+    </select>
+    <insert id="insertNewUploadCode" parameterType="com.oriole.motaserver.model.FileUploadCode">
+        INSERT INTO file_upload_code(FileUploadCode, DeviceID, Datatime)
+        value (#{fileUploadCode}, #{deviceID}, #{datetime})
+    </insert>
+</mapper>
